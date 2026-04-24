@@ -2,12 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vogdiesel-create.github.io/exp-sec-filing-intel-001/</loc>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vogdiesel-create.github.io/exp-sec-filing-intel-001/blog/</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://vogdiesel-create.github.io/exp-sec-filing-intel-001/blog/how-to-track-sec-filing-changes.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
