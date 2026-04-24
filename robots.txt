@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vogdiesel-create.github.io/exp-sec-filing-intel-001/sitemap.xml
