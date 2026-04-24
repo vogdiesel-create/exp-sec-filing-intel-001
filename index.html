@@ -78,11 +78,7 @@
             signups.push({email: email, exp: exp, ts: new Date().toISOString()});
             localStorage.setItem('signups', JSON.stringify(signups));
             // Send to collection endpoint
-            fetch('https://formsubmit.co/ajax/experiments@vogdiesel.com', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-                body: JSON.stringify({email: email, experiment: exp, _subject: 'New signup: ' + exp})
-            }).catch(function() {});
+            // Signup recorded locally
             document.getElementById('success').style.display = 'block';
             this.style.display = 'none';
         });
