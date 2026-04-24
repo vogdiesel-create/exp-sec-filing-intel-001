@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilingDiff - SEC Filing Change Detection</title>
+    <meta name="description" content="Automated 10-K and 10-Q diff reports. See exactly what companies changed in risk factors, revenue breakdowns, and legal proceedings -- delivered within hours of filing.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #e0e0e0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+        .container { max-width: 640px; text-align: center; }
+        h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; color: #fff; }
+        .subtitle { font-size: 1.1rem; color: #999; margin-bottom: 2rem; line-height: 1.6; }
+        .features { text-align: left; margin: 2rem 0; }
+        .features li { padding: 0.5rem 0; color: #ccc; list-style: none; }
+        .features li::before { content: "→ "; color: #4a9eff; }
+        .cta-section { background: #111; border: 1px solid #222; border-radius: 8px; padding: 2rem; margin: 2rem 0; }
+        .cta-section h2 { font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff; }
+        .cta-section p { color: #888; margin-bottom: 1.5rem; font-size: 0.9rem; }
+        form { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+        input[type="email"] { padding: 0.75rem 1rem; border: 1px solid #333; border-radius: 4px; background: #1a1a1a; color: #fff; font-size: 1rem; flex: 1; min-width: 240px; }
+        button { padding: 0.75rem 2rem; background: #4a9eff; color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; font-weight: 600; }
+        button:hover { background: #3a8eef; }
+        .pricing { color: #666; font-size: 0.85rem; margin-top: 1rem; }
+        .footer { margin-top: 3rem; color: #444; font-size: 0.8rem; }
+        .success { display: none; padding: 1rem; background: #1a3a1a; border: 1px solid #2a5a2a; border-radius: 4px; color: #6f6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Know What Changed in SEC Filings Before the Market Does</h1>
+        <p class="subtitle">Automated 10-K and 10-Q diff reports. See exactly what companies changed in risk factors, revenue breakdowns, and legal proceedings -- delivered within hours of filing.</p>
+
+        <ul class="features">
+            <li>Automatic comparison against previous filings</li>
+            <li>AI-powered change summary highlighting what matters</li>
+            <li>Risk factor, revenue, and legal proceeding tracking</li>
+            <li>Email alerts within hours of new filings</li>
+            <li>API access for quants and developers</li>
+        </ul>
+
+        <div class="cta-section">
+            <h2>Get Early Access</h2>
+            <p>Be first to try FilingDiff when we launch.</p>
+            <form id="signup-form">
+                <input type="hidden" name="experiment" value="sec-filing-intel-001">
+                <input type="email" name="email" placeholder="you@company.com" required>
+                <button type="submit">Join Waitlist</button>
+            </form>
+            <p class="pricing">Starting at $99/mo. API access available.</p>
+        </div>
+
+        <div class="success" id="success">
+            Thanks! We'll be in touch soon.
+        </div>
+
+        <p class="footer">&copy; 2026</p>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var email = this.querySelector('input[type="email"]').value;
+            var exp = 'sec-filing-intel-001';
+            // Store signup in localStorage as backup
+            var signups = JSON.parse(localStorage.getItem('signups') || '[]');
+            signups.push({email: email, exp: exp, ts: new Date().toISOString()});
+            localStorage.setItem('signups', JSON.stringify(signups));
+            // Send to collection endpoint
+            fetch('https://formspree.io/f/noform', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                body: JSON.stringify({email: email, experiment: exp})
+            }).catch(function() {});
+            document.getElementById('success').style.display = 'block';
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
