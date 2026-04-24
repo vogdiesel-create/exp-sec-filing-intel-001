@@ -1,23 +1,35 @@
-# FilingDiff - SEC Filing Change Detection
+# FilingDiff
 
-**Know what changed in SEC filings before the market does.**
+**Automated SEC filing change detection. Know what changed before the market does.**
 
-FilingDiff automatically monitors SEC EDGAR for new 10-K and 10-Q filings, compares them against previous filings, and delivers a concise diff report highlighting exactly what changed.
+## The Problem
 
-## What It Does
-- Monitors SEC EDGAR for new filings in real-time
-- Compares each filing section-by-section against the prior period
-- Extracts changes in risk factors, revenue breakdowns, legal proceedings, and management discussion
-- Delivers AI-powered change summaries within hours of filing
-- API access for quants and algorithmic traders
+Every quarter, public companies file 200+ page reports with the SEC. Analysts spend 2-4 hours per filing comparing documents side by side. Material changes -- new risk factors, revenue shifts, legal proceedings -- are buried in boilerplate.
 
-## Who It Is For
-- Individual investors managing their own portfolios
-- Small hedge funds and RIAs without Bloomberg terminals
-- Quants who want structured filing change data via API
-- Financial analysts who spend hours manually comparing filings
+## The Solution
+
+FilingDiff monitors SEC EDGAR for new filings, automatically compares each section against the prior period, and generates a ranked change report highlighting what actually matters.
+
+## Features
+
+- Automatic EDGAR monitoring for new 10-K and 10-Q filings
+- Section-by-section diff with NLP similarity scoring
+- Significance ranking (risk factors and legal get higher weight)
+- 12-second processing vs 2-4 hours manual review
+- Email alerts for material changes
 
 ## Pricing
-Starting at $99/mo. API access available.
 
-**[Join the Waitlist](https://vogdiesel-create.github.io/exp-sec-filing-intel-001/)**
+**$99/mo** -- free during early access.
+
+## Get Early Access
+
+[Sign up for early access](https://vogdiesel-create.github.io/exp-sec-filing-intel-001/) and be the first to try it.
+
+## Status
+
+Currently in early access. We're onboarding users and collecting feedback.
+
+---
+
+Built with AI. Tested with real data. Priced for practitioners, not enterprises.
